@@ -6,7 +6,7 @@
         "module": "$import(./modules/overwrite-404)"
       },
       "name": "overwrite-404",
-      "policyType": "overwrite-404"
+      "policyType": "custom-code-outbound"
     }
   ]
 }

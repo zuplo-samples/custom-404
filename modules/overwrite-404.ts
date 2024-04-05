@@ -1,19 +1,7 @@
-import { ZuploContext, ZuploRequest } from "@zuplo/runtime";
-
-type MyPolicyOptionsType = {
-  myOption: any;
-};
-
-export default async function policy(
-  response: Response,
-  request: ZuploRequest,
-  context: ZuploContext,
-  options: MyPolicyOptionsType,
-  policyName: string
-) {
-  // your policy code goes here, and can use the options to perform any
-  // configuration
-  // See the docs: https://www.zuplo.com/docs/policies/custom-code-inbound
+export default async function policy(response: Response) {
+  if (response.status === 404) {
+    return new Response('My Custom 404', { status: 404 })
+  }
 
   return response;
 }
