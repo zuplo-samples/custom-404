@@ -4,5 +4,32 @@
     "version": "1.0.0",
     "title": "My Zuplo API"
   },
-  "paths": {}
+  "paths": {
+    "/my-endpoint": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "New Route",
+        "description": "Lorem ipsum dolor sit amet, **consectetur adipiscing** elit, sed do `eiusmod tempor` incididunt ut labore et dolore magna aliqua.",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "https://0385a15e03594f0b972ce7cc400d4d75.api.mockbin.io/"
+            }
+          },
+          "policies": {
+            "inbound": [],
+            "outbound": [
+              "overwrite-404"
+            ]
+          }
+        },
+        "operationId": "9af42936-1e2d-46a4-b346-61000e2eb677"
+      }
+    }
+  }
 }
